@@ -1,0 +1,42 @@
+h1 {
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+#weatherContent {
+    display: none;
+}
+.navbar {
+    height: 100px;
+    background-color: #0b006d;
+}
+#cityDetail,
+#uvIndexColor,
+li {
+    color: #4D4F53;
+}
+#searchResults,
+#cityDetail,
+.card {
+    background-color: #0b006d;
+}
+#searchResults {
+    height: 100vh;
+}
+#searchHistory li {
+    background-color: grey;
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+p {
+    color: white;
+}
+h2{
+    color: white;
+}
+.btn-primary{
+    margin: 10px 0px 0px 0px;
+}
+
