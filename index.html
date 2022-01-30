@@ -13,7 +13,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row navbar ">
+        <div class="row navbar navbar-expand-lg navbar-dark purple-gradient">
             <div class="col-12 text-center">
                 <h1>Weather Dashboard</h1>
             </div>
@@ -28,35 +28,28 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="input-group">
-                            <input class="form-control" type="text" id="enterCity"
-                                placeholder="Enter city to view weather">
+                            <input class="form-control" type="text" id="enterCity">
                         </div>
-                        <button type="button" id="searchBtn"
-                                class="btn btn-primary col-12">search</i></button>
+                        <button type="button" id="searchBtn" class="btn btn-primary col-12">search</button>
                     </div>
                 </div>
                 <hr>
                 <div class="row mt-3">
                     <div class="col-12">
-
-                        <ul id="searchHistory" class="list-group">
-                        </ul>
-
+                        <ul id="searchHistory" class="list-group"></ul>
                     </div>
                 </div>
             </div>
             <div id="weatherContent" class="col-9 pb-4 pt-4">
                 <div class="row pb-3 mr-2 ml-2">
-                    <div id="cityDetail" class="col-12 px-3 py-3">
-                    </div>
+                    <div id="cityDetail" class="col-12 px-3 py-3"></div>
                 </div>
                 <div class="row pb-2 pt-1">
                     <div class="col-12 ml-2">
                         <h3>5-Day Forecast:</h3>
                     </div>
                 </div>
-                <div id="fiveDay" class="row pl-2">
-                </div>
+                <div id="fiveDay" class="row pl-2"></div>
             </div>
         </div>
     </div>

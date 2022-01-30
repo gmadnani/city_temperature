@@ -1,5 +1,4 @@
 var apiKey = "65da9ed0c529916b820f587d6cd489b7";
-// var today = moment().format('L');
 var searchHistoryList = [];
 
 function currentWeather(city) {
@@ -88,9 +87,20 @@ function futureWeather(latitude, longitude){
     });
 }
 
-$("#searchBtn").on("click", function(event) {
-    event.preventDefault();
-
-    var city = $("#enterCity").val().trim();
+$("#searchBtn").on("click", function() {
+    var city = $("#enterCity").val();
     currentWeather(city);
+    if (!searchHistoryList.includes(city)) {
+        searchHistoryList.push(city);
+        var searchedCity = $(
+            `<li class="list-group-item">${city}</li>`
+            );
+        $("#searchHistory").append(searchedCity);
+    };
+    localStorage.setItem("city", JSON.stringify(searchHistoryList));
+});
+
+$(document).on("click", ".list-group-item", function() {
+    var listCity = $(this).text();
+    currentWeather(listCity);
 });
