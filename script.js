@@ -17,9 +17,8 @@ function currentWeather(city) {
     //displaying the name, date, icon, temperature, wind and humidity
     var currentCity = $(`
             <h2 id="currentCity">
-                ${cityWeatherResponse.name} ${moment().format(
-      "L"
-    )} <img src="${linkIcon}" />
+                ${cityWeatherResponse.name} ${moment().format("L")} 
+                <img src="${linkIcon}" />
             </h2>
             <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
             <p>Wind: ${cityWeatherResponse.wind.speed} MPH</p>
@@ -54,7 +53,7 @@ function currentWeather(city) {
           .css("background-color", "#3EA72D")
           .css("color", "white");
       } else if (uviResponse.value >= 3 && uviResponse.value <= 5) {
-        $("#uvIndexColor").css("background-color", "#FFF300");
+        $("#uvIndexColor").css("background-color", "#8b8b22");
       } else {
         $("#uvIndexColor")
           .css("background-color", "#E53210")
