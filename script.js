@@ -2,7 +2,7 @@ var apiKey = "65da9ed0c529916b820f587d6cd489b7";
 // var today = moment().format('L');
 var searchHistoryList = [];
 
-function currentCondition(city) {
+function currentWeather(city) {
 
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
@@ -48,7 +48,43 @@ function currentCondition(city) {
                 $("#uvIndexColor").css("background-color", "#E53210").css("color", "white");
             }
         });
-        // futureCondition(lat, lon);
+         futureWeather(latitude, longitude);
+    });
+}
+
+function futureWeather(latitude, longitude){
+    var latlonURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    $.ajax({url: latlonURL, method: "GET"})
+    .then(function(citydetails){
+        $("#fiveDay").empty();
+        for (let i = 1; i < 6; i++) {
+            var city = {
+                date: citydetails.daily[i].dt,
+                icon: citydetails.daily[i].weather[0].icon,
+                temp: citydetails.daily[i].temp.day,
+                wind: citydetails.daily[i].wind_speed,
+                humidity: citydetails.daily[i].humidity
+            };
+
+            
+            var linkIcon = `<img src="https://openweathermap.org/img/w/${city.icon}.png"`;
+
+            var predictionBlocks = $(`
+                <div class="pl-3">
+                    <div class="card pl-3 pt-3 mb-3 text-light" style="width: 12rem;>
+                        <div class="card-body">
+                            <h5>${moment.unix(city.date).format("L")}</h5>
+                            <p>${linkIcon}</p>
+                            <p>Temp: ${city.temp} °F</p>
+                            <p>Wind: ${city.wind} MPH</p>
+                            <p>Humidity: ${city.humidity} %</p>
+                        </div>
+                    </div>
+                <div>
+            `);
+
+            $("#fiveDay").append(predictionBlocks);
+        }
     });
 }
 
@@ -56,5 +92,5 @@ $("#searchBtn").on("click", function(event) {
     event.preventDefault();
 
     var city = $("#enterCity").val().trim();
-    currentCondition(city);
+    currentWeather(city);
 });
