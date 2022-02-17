@@ -31,3 +31,6 @@ City temperature displays a weather dashboard of any city in the world. The citi
 https://gmadnani.github.io/city_temperature/
 
 https://github.com/gmadnani/city_temperature
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
